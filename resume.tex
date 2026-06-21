@@ -1,0 +1,210 @@
+%-------------------------
+% ATS-Friendly Resume in LaTeX
+% Author: Kevin George Leo
+%-------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{multicol}
+\input{glyphtounicode}
+
+% Font
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Page style
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Margins
+\usepackage[top=0.6in, bottom=0.6in, left=0.6in, right=0.6in]{geometry}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% ATS-friendly section formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% PDF metadata for ATS
+\hypersetup{
+  pdftitle={Kevin George Leo - Resume},
+  pdfauthor={Kevin George Leo},
+  pdfsubject={Computer Science, Security, Web Development},
+  pdfkeywords={Security, Web Security, Python, JavaScript, Node.js, Deno, Bun, Playwright, SQL, Linux}
+}
+
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{#1 \vspace{-2pt}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Kevin George Leo} \\ \vspace{4pt}
+    \small +49 15510 526441 $|$
+    \href{mailto:kevgeoleo1999@gmail.com}{\underline{kevgeoleo1999@gmail.com}} $|$
+    \href{https://www.linkedin.com/in/kevin-george-leo-481b34249/}{\underline{Linkedin}} $|$
+    \href{https://github.com/kevgeoleo}{\underline{github.com/kevgeoleo}} $|$
+    Germany
+\end{center}
+
+%-----------SUMMARY-----------
+\section{Summary}
+\small{
+Security researcher and software engineer with 2+ years of industry experience and active research in web security, JavaScript runtime differential testing, and vulnerability disclosure. Skilled in Python, JavaScript, and automated testing pipelines. Experienced in responsible disclosure with 6 CVEs and 1 GitHub Security Advisory. Pursuing MSc Computer Science at Saarland University with a GPA of 1.5.
+}
+
+%-----------WORK EXPERIENCE-----------
+\section{Work Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Hilfswissenschaftler (Research Assistant)}{May 2024 -- Present}
+      {CISPA Helmholtz Center for Information Security}{Saarbrücken, Germany}
+      \resumeItemListStart
+        \resumeItem{Conducted security research in the web domain using differential testing of JavaScript runtimes including Node.js, Deno, and Bun.}
+        \resumeItem{Designed and implemented an automated testing pipeline in Python to execute test suites across multiple runtimes and post-process results for vulnerability detection.}
+        \resumeItem{Reported and responsibly disclosed security bugs to runtime maintainers via GitHub Issues.}
+        \resumeItem{Built a proof-of-concept UI deception attack leveraging Progressive Web Apps (PWAs) on V8-based browsers using HTML, CSS, and JavaScript to demonstrate real-world impact.}
+        \resumeItem{Developed an automated Playwright-based framework to simulate user authentication flows in 2FA-based environments.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Programmer Analyst}{Aug 2021 -- Sep 2023}
+      {Cognizant Technology Solutions}{Kochi, India}
+      \resumeItemListStart
+        \resumeItem{Worked as a Production Support Engineer on a health insurance data warehousing project, supporting business-critical ETL pipelines.}
+        \resumeItem{Monitored, triaged, and resolved production incidents following structured incident response workflows, using ServiceNow, Linux shell scripting, IBM DataStage, and SQL.}
+        \resumeItem{Conducted Root Cause Analysis (RCA) as part of post-incident review, identifying systemic failures and preventing recurrence.}
+        \resumeItem{Implemented remediation and preventive controls to improve pipeline reliability and reduce incident volume.}
+        \resumeItem{Prepared incident reports and SLA documentation; communicated incident status, risk assessments, and resolutions to technical and business stakeholders.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {University of Saarland}{Oct 2023 -- Present}
+      {MSc Computer Science}{Saarbrücken, Germany}
+      \resumeItemListStart
+        \resumeItem{GPA: 1.5 (German scale)}
+        \resumeItem{Relevant Courses: Security, Web Security, Human Computer Interaction, Data Networks, Software Engineering}
+        \resumeItem{Completed CTF (Capture the Flag) challenges in Web Security coursework, covering topics such as [XSS / SQLi / CSRF / UI Deception]}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Rajagiri School of Engineering and Technology}{Jul 2017 -- Jun 2021}
+      {Bachelor of Technology, Computer Science and Engineering}{India}
+      \resumeItemListStart
+        \resumeItem{GPA: 9.29 / 10}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS AND THESIS-----------
+\section{Projects and Thesis}
+    \resumeSubHeadingListStart
+
+      \resumeProjectHeading
+          {\textbf{Master Thesis:} Study on Cross-Runtime Bug Transference and Robustness of Fixes}{2026}
+          \resumeItemListStart
+            \resumeItem{Developed an automated pipeline using LLMs to generate proof-of-concept (PoC) exploits from GitHub issue reports.}
+            \resumeItem{Executed PoCs across multiple JavaScript runtimes to detect behavioral divergences and recurring bugs.}
+            \resumeItem{Evaluated the impact of runtimes on vulnerable npm packages and their execution behavior.}
+            \resumeItem{Designed AST-based mutation techniques to test the robustness of vulnerability patches.}
+            \resumeItem{Discovered 141 bugs, of which 127 are confirmed (110 previously unreported) across major JavaScript runtimes.}
+            \resumeItem{Uncovered 57 weak security fixes in npm packages; responsible disclosure resulted in 6 CVEs (CVE-2026-25521, CVE-2026-25047, CVE-2026-26021, CVE-2026-27212, CVE-2026-28491, CVE-2026-33864) and 1 GitHub Security Advisory (GHSA-gcrg-hrj9-ggqg).}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Chemical Structure Drawing Tool}}{Jan 2020 -- Dec 2021}
+          \resumeItemListStart
+            \resumeItem{Developed a web-based exam platform for high school students with an integrated chemical structure drawing tool.}
+            \resumeItem{Built using HTML, CSS, JavaScript, PHP, and SQL; developed solution for representing and evaluating chemical structure data using Python and SQL.}
+            \resumeItem{Managed all stages of the Software Development Life Cycle (SDLC); documented project using LaTeX.}
+          \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages:} Python, JavaScript, PHP, SQL, C, C++, R, Unix Shell \\
+     \textbf{Web Technologies:} HTML, CSS, Node.js, Deno, Bun, Progressive Web Apps (PWA) \\
+     \textbf{Testing \& Automation:} Playwright, Differential Testing, AST Mutation (Acorn, Estraverse) \\
+     \textbf{Security Tools:} Autopsy, Hashcat \\
+     \textbf{Developer Tools:} Git, Linux, Figma, LaTeX, OpenAI API, IBM DataStage, ServiceNow \\
+     \textbf{Databases:} SQL \\
+     \textbf{Other:} MS Office, LLM-based automation pipelines
+    }}
+ \end{itemize}
+
+%-----------NON-TECHNICAL SKILLS-----------
+\section{Non-Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     Analytical Thinking, Problem Solving, Written and Verbal Communication, Team Collaboration, Self-Initiative
+    }}
+ \end{itemize}
+
+%-----------LANGUAGES-----------
+\section{Languages}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{English:} C1 (Professional Working Proficiency) \quad
+     \textbf{German:} A2 (Elementary)
+    }}
+ \end{itemize}
+
+%-------------------------------------------
+\end{document}
