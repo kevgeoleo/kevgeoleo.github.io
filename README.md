@@ -1,4 +1,4 @@
-# kevin-leo.github.io
+# kevgeoleo.github.io
 
 Personal portfolio site — single static page, no build step required.
 
