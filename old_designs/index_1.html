@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kevin George Leo — Security Researcher, JavaScript Runtimes</title>
+<meta name="description" content="Kevin George Leo — Security researcher specializing in JavaScript runtime differential testing across Node.js, Deno, and Bun. 127 confirmed bugs, 6 CVEs, 1 GitHub Security Advisory.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,650;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap hero-grid">
+
+    <div class="hero-main">
+      <p class="repo-tag">kevin-leo / cross-runtime-security</p>
+
+      <div class="terminal" role="img" aria-label="Illustrative terminal output showing a JavaScript prototype-pollution divergence across Node.js, Deno, and Bun runtimes">
+        <div class="terminal-tab">repro.sh — node · deno · bun</div>
+        <pre class="terminal-body"><span class="t-prompt">$</span> <span class="t-cmd">cat poc.js</span>
+<span class="t-out">{"__proto__":{"polluted":true}}</span>
+
+<span class="t-prompt">$</span> <span class="t-cmd">node poc.js</span>   <span class="t-arrow">→</span> <span class="t-add">polluted: true</span>
+<span class="t-prompt">$</span> <span class="t-cmd">deno run poc.js</span> <span class="t-arrow">→</span> <span class="t-del">TypeError: frozen prototype</span>
+<span class="t-prompt">$</span> <span class="t-cmd">bun poc.js</span>    <span class="t-arrow">→</span> <span class="t-add">polluted: true</span>
+
+<span class="t-flag">⚠ divergence detected</span> — pollution surfaces on node &amp; bun, swallowed by deno
+<span class="t-muted">→ filed as CVE-2026-25521</span></pre>
+        <p class="terminal-caption">Representative pattern — one of several cross-runtime divergences behind Kevin's disclosed CVEs.</p>
+      </div>
+    </div>
+
+    <div class="hero-side">
+      <div class="avatar-slot">
+        <img id="avatar-img" src="assets/profile.jpg" alt="Kevin George Leo"
+             onerror="this.style.display='none'; document.getElementById('avatar-fallback').style.display='flex';">
+        <div id="avatar-fallback" class="avatar-fallback">KL</div>
+      </div>
+
+      <h1 class="name">Kevin<br>George Leo</h1>
+      <p class="title">Software Engineer —<br>Security &amp; Program Analysis</p>
+      <p class="affiliation">MSc Computer Science, Saarland University<br>Hilfswissenschaftler, CISPA Helmholtz Center</p>
+      <p class="location">📍 Saarbrücken, Germany</p>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noopener">Download Résumé ↓</a>
+        <a class="btn" href="mailto:kevgeoleo1999@gmail.com">Email</a>
+      </div>
+      <div class="cta-row cta-row-secondary">
+        <a class="btn-text" href="https://github.com/kevgeoleo" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn-text" href="https://www.linkedin.com/in/kevin-george-leo-481b34249/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn-text" href="tel:+4915510526441">+49 15510 526441</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="diffstat-strip wrap">
+    <span class="diffstat-item"><strong>141</strong> bugs surfaced</span>
+    <span class="diffstat-divider">·</span>
+    <span class="diffstat-item"><strong>127</strong> confirmed</span>
+    <span class="diffstat-divider">·</span>
+    <span class="diffstat-item signal"><strong>6</strong> CVEs</span>
+    <span class="diffstat-divider">·</span>
+    <span class="diffstat-item signal"><strong>1</strong> GHSA</span>
+    <span class="diffstat-bar" aria-hidden="true">
+      <span class="sq add"></span><span class="sq add"></span><span class="sq add"></span><span class="sq add"></span><span class="sq add"></span>
+      <span class="sq del"></span><span class="sq del"></span>
+    </span>
+  </div>
+</header>
+
+<!-- ============ STICKY NAV ============ -->
+<nav class="filenav" id="filenav">
+  <div class="wrap filenav-inner">
+    <div class="filenav-tabs">
+      <a href="#summary" class="filetab" data-section="summary">summary.md</a>
+      <a href="#experience" class="filetab" data-section="experience">experience.log</a>
+      <a href="#research" class="filetab" data-section="research">thesis.diff</a>
+      <a href="#advisories" class="filetab" data-section="advisories">advisories.json</a>
+      <a href="#skills" class="filetab" data-section="skills">skills.yml</a>
+      <a href="#education" class="filetab" data-section="education">education.md</a>
+      <a href="#contact" class="filetab" data-section="contact">contact.sh</a>
+    </div>
+    <span class="filenav-diffstat"><span class="add">+221</span> <span class="del">−57</span></span>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ============ SUMMARY ============ -->
+  <section id="summary" class="section">
+    <div class="wrap">
+      <p class="eyebrow">summary.md</p>
+      <blockquote class="summary-quote">
+        Security researcher and software engineer with 2+ years of industry experience and active
+        research in web security, JavaScript runtime differential testing, and vulnerability disclosure.
+        Skilled in Python, JavaScript, and automated testing pipelines. Experienced in responsible
+        disclosure with 6 CVEs and 1 GitHub Security Advisory. Pursuing an MSc in Computer Science at
+        Saarland University, GPA 1.5.
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience" class="section">
+    <div class="wrap">
+      <p class="eyebrow">experience.log</p>
+      <h2 class="section-title">Work Experience</h2>
+
+      <article class="commit-card">
+        <div class="commit-head">
+          <div>
+            <span class="commit-id">research-assistant</span>
+            <h3 class="commit-role">Research Assistant — CISPA Helmholtz Center for Information Security</h3>
+            <p class="commit-meta">Saarbrücken, Germany</p>
+          </div>
+          <time class="commit-date">May 2024 — Present</time>
+        </div>
+        <ul class="diff-list">
+          <li><span class="diff-mark add">+</span> Conducted differential testing across Node.js, Deno, and Bun to surface JavaScript runtime security bugs.</li>
+          <li><span class="diff-mark add">+</span> Designed and built an automated Python pipeline to run test suites across runtimes and post-process results for vulnerability detection.</li>
+          <li><span class="diff-mark add">+</span> Reported and responsibly disclosed security bugs to runtime maintainers via GitHub Issues.</li>
+          <li><span class="diff-mark add">+</span> Built a proof-of-concept UI deception attack exploiting Progressive Web App manifests on V8-based browsers (HTML, CSS, JavaScript).</li>
+          <li><span class="diff-mark add">+</span> Developed an automated Playwright framework simulating user authentication flows in 2FA-based environments.</li>
+        </ul>
+      </article>
+
+      <article class="commit-card">
+        <div class="commit-head">
+          <div>
+            <span class="commit-id">programmer-analyst</span>
+            <h3 class="commit-role">Programmer Analyst — Cognizant Technology Solutions</h3>
+            <p class="commit-meta">Kochi, India</p>
+          </div>
+          <time class="commit-date">Aug 2021 — Sep 2023</time>
+        </div>
+        <ul class="diff-list">
+          <li><span class="diff-mark add">+</span> Supported business-critical ETL pipelines as Production Support Engineer on a health-insurance data warehousing project.</li>
+          <li><span class="diff-mark add">+</span> Monitored, triaged, and resolved production incidents via structured workflows using ServiceNow, Linux shell scripting, IBM DataStage, and SQL.</li>
+          <li><span class="diff-mark add">+</span> Led Root Cause Analysis as part of post-incident review, identifying systemic failures and preventing recurrence.</li>
+          <li><span class="diff-mark add">+</span> Implemented remediation and preventive controls that improved pipeline reliability and reduced incident volume.</li>
+          <li><span class="diff-mark add">+</span> Authored incident reports and SLA documentation for technical and business stakeholders.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ RESEARCH / THESIS ============ -->
+  <section id="research" class="section">
+    <div class="wrap">
+      <p class="eyebrow">thesis.diff</p>
+      <h2 class="section-title">Master's Thesis</h2>
+      <p class="thesis-name">Cross-Runtime Bug Transference &amp; the Robustness of Security Fixes <span class="thesis-year">— 2026</span></p>
+
+      <div class="hunk-card">
+        <p class="hunk-header">@@ pipeline @@</p>
+        <ul class="diff-list">
+          <li><span class="diff-mark add">+</span> LLM-driven generation of proof-of-concept exploits directly from GitHub issue reports.</li>
+          <li><span class="diff-mark add">+</span> Cross-runtime execution to detect behavioral divergence and recurring bug patterns.</li>
+          <li><span class="diff-mark add">+</span> AST-based mutation testing (Acorn, Estraverse) to evaluate the robustness of existing security patches.</li>
+        </ul>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-tile">
+          <span class="stat-num">141</span>
+          <span class="stat-label">bugs surfaced</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-num">127</span>
+          <span class="stat-label">confirmed <em>(110 previously unreported)</em></span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-num del">57</span>
+          <span class="stat-label">weak fixes uncovered in npm packages</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-num signal">6 + 1</span>
+          <span class="stat-label">CVEs published &amp; GHSA advisory</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ADVISORIES ============ -->
+  <section id="advisories" class="section">
+    <div class="wrap">
+      <p class="eyebrow">advisories.json</p>
+      <h2 class="section-title">Published Advisories</h2>
+      <p class="section-sub">Responsible disclosures resulting from thesis research, all confirmed prototype-pollution vulnerabilities.</p>
+
+      <div class="table-wrap">
+        <table class="advisory-table">
+          <thead>
+            <tr><th>CVE / GHSA</th><th>Advisory</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="cve-badge">CVE-2026-25521</span></td>
+              <td><a href="https://github.com/advisories/GHSA-rxrv-835q-v5mh" target="_blank" rel="noopener">GHSA-rxrv-835q-v5mh ↗</a></td>
+              <td>Prototype pollution vulnerability</td>
+            </tr>
+            <tr>
+              <td><span class="cve-badge">CVE-2026-25047</span></td>
+              <td><a href="https://github.com/advisories/GHSA-2733-6c58-pf27" target="_blank" rel="noopener">GHSA-2733-6c58-pf27 ↗</a></td>
+              <td>Prototype pollution vulnerability</td>
+            </tr>
+            <tr>
+              <td><span class="cve-badge ghsa">GHSA-gcrg-hrj9-ggqg</span></td>
+              <td><a href="https://github.com/davideicardi/confinit/security/advisories/GHSA-gcrg-hrj9-ggqg" target="_blank" rel="noopener">davideicardi/confinit ↗</a></td>
+              <td>Prototype pollution vulnerability</td>
+            </tr>
+            <tr>
+              <td><span class="cve-badge">CVE-2026-26021</span></td>
+              <td><a href="https://github.com/advisories/GHSA-2c4m-g7rx-63q7" target="_blank" rel="noopener">GHSA-2c4m-g7rx-63q7 ↗</a></td>
+              <td>Prototype pollution vulnerability</td>
+            </tr>
+            <tr>
+              <td><span class="cve-badge">CVE-2026-27212</span></td>
+              <td><a href="https://github.com/nolimits4web/swiper/security/advisories/GHSA-hmx5-qpq5-p643" target="_blank" rel="noopener">nolimits4web/swiper ↗</a></td>
+              <td>Prototype pollution vulnerability</td>
+            </tr>
+            <tr>
+              <td><span class="cve-badge">CVE-2026-28491</span></td>
+              <td><a href="https://github.com/steveukx/properties/security/advisories/GHSA-q5jx-7q8j-95vw" target="_blank" rel="noopener">steveukx/properties ↗</a></td>
+              <td>Prototype pollution vulnerability</td>
+            </tr>
+            <tr>
+              <td><span class="cve-badge">CVE-2026-33864</span></td>
+              <td><a href="https://github.com/mozilla/node-convict/security/advisories/GHSA-44fc-8fm5-q62h" target="_blank" rel="noopener">mozilla/node-convict ↗</a></td>
+              <td>Prototype pollution vulnerability</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills" class="section">
+    <div class="wrap">
+      <p class="eyebrow">skills.yml</p>
+      <h2 class="section-title">Technical Skills</h2>
+
+      <div class="skill-groups">
+        <div class="skill-group">
+          <h3>languages:</h3>
+          <div class="tags"><span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">SQL</span><span class="tag">C</span><span class="tag">C++</span><span class="tag">R</span><span class="tag">Unix Shell</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>runtimes_and_web:</h3>
+          <div class="tags"><span class="tag">Node.js</span><span class="tag">Deno</span><span class="tag">Bun</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">PWA</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>testing_and_automation:</h3>
+          <div class="tags"><span class="tag">Playwright</span><span class="tag">Differential Testing</span><span class="tag">AST Mutation (Acorn / Estraverse)</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>security_tools:</h3>
+          <div class="tags"><span class="tag">Autopsy</span><span class="tag">Hashcat</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>dev_tools:</h3>
+          <div class="tags"><span class="tag">Git</span><span class="tag">Linux</span><span class="tag">Figma</span><span class="tag">LaTeX</span><span class="tag">OpenAI API</span><span class="tag">IBM DataStage</span><span class="tag">ServiceNow</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section id="education" class="section">
+    <div class="wrap">
+      <p class="eyebrow">education.md</p>
+      <h2 class="section-title">Education</h2>
+
+      <div class="edu-row">
+        <div class="edu-main">
+          <h3>MSc Computer Science — Saarland University</h3>
+          <p class="commit-meta">Saarbrücken, Germany</p>
+          <p class="edu-detail">Relevant coursework: Security, Web Security, Human Computer Interaction, Data Networks, Software Engineering. Completed CTF challenges covering XSS, SQLi, CSRF, and UI deception.</p>
+        </div>
+        <div class="edu-side">
+          <time>Oct 2023 — Present</time>
+          <span class="gpa-badge">GPA 1.5</span>
+        </div>
+      </div>
+
+      <div class="edu-row">
+        <div class="edu-main">
+          <h3>BTech, Computer Science &amp; Engineering</h3>
+          <p class="commit-meta">Rajagiri School of Engineering and Technology, India</p>
+        </div>
+        <div class="edu-side">
+          <time>Jul 2017 — Jun 2021</time>
+          <span class="gpa-badge">9.29 / 10</span>
+        </div>
+      </div>
+
+      <p class="eyebrow eyebrow-spaced">languages.yml</p>
+      <div class="lang-row">
+        <span class="lang-item">English <strong>C1</strong></span>
+        <span class="lang-item">German <strong>A2</strong></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="section section-contact">
+    <div class="wrap">
+      <p class="eyebrow">contact.sh</p>
+      <h2 class="section-title">Let's talk</h2>
+      <p class="section-sub">Open to security engineering, test automation, and DevSecOps roles across Germany.</p>
+
+      <div class="contact-grid">
+        <a class="contact-card" href="mailto:kevgeoleo1999@gmail.com">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">kevgeoleo1999@gmail.com</span>
+        </a>
+        <a class="contact-card" href="https://www.linkedin.com/in/kevin-george-leo-481b34249/" target="_blank" rel="noopener">
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-value">in/kevin-george-leo</span>
+        </a>
+        <a class="contact-card" href="https://github.com/kevgeoleo" target="_blank" rel="noopener">
+          <span class="contact-label">GitHub</span>
+          <span class="contact-value">github.com/kevgeoleo</span>
+        </a>
+        <a class="contact-card" href="tel:+4915510526441">
+          <span class="contact-label">Phone</span>
+          <span class="contact-value">+49 15510 526441</span>
+        </a>
+      </div>
+
+      <a class="btn btn-primary btn-block" href="resume.pdf" target="_blank" rel="noopener">Download Résumé (PDF) ↓</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p class="signoff">Signed-off-by: Kevin George Leo &lt;kevgeoleo1999@gmail.com&gt;</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
