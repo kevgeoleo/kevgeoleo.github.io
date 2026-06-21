@@ -1,6 +1,6 @@
 # kevgeoleo.github.io
 
-Personal portfolio site 
+Personal portfolio site
 
 ## Files
 
@@ -9,11 +9,12 @@ index.html       page content
 styles.css       all styling
 script.js        scrollspy for the sticky nav
 resume.pdf       compiled from resume.tex (regenerate if you edit the .tex)
-resume.tex       LaTeX source for the résumé
 assets/          put your profile photo here
+old_designs/     old index.html designs and resume pdf
 ```
 
 ## Photo
+
 ```
 assets/profile.jpg
 ```
