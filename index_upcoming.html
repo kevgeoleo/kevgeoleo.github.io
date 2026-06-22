@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" href="assets/logo.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kevin George Leo — Security Researcher, JavaScript Runtimes</title>
@@ -158,18 +157,14 @@
 
   </div>
 
-  <div class="diffstat-strip wrap">
-    <span class="diffstat-item"><strong>141</strong> bugs surfaced</span>
+  <div class="diffstat-strip wrap" id="diffstat-strip">
+    <span class="diffstat-item"><strong class="count-up" data-count="141">0</strong> bugs surfaced</span>
     <span class="diffstat-divider">·</span>
-    <span class="diffstat-item"><strong>127</strong> confirmed</span>
+    <span class="diffstat-item"><strong class="count-up" data-count="127">0</strong> confirmed</span>
     <span class="diffstat-divider">·</span>
-    <span class="diffstat-item signal"><strong>6</strong> CVEs</span>
+    <span class="diffstat-item signal"><strong class="count-up" data-count="6">0</strong> CVEs</span>
     <span class="diffstat-divider">·</span>
-    <span class="diffstat-item signal"><strong>1</strong> GHSA</span>
-    <!--<span class="diffstat-bar" aria-hidden="true">
-      <span class="sq add"></span><span class="sq add"></span><span class="sq add"></span><span class="sq add"></span><span class="sq add"></span>
-      <span class="sq del"></span><span class="sq del"></span>
-    </span>-->
+    <span class="diffstat-item signal"><strong class="count-up" data-count="1">0</strong> GHSA</span>
   </div>
 </header>
 
@@ -262,24 +257,24 @@
       </div>
 
       <div class="stat-grid">
-        <div class="stat-tile">
-          <span class="stat-num">141</span>
+        <div class="stat-tile reveal">
+          <span class="stat-num count-up" data-count="141">0</span>
           <span class="stat-label">bugs surfaced</span>
         </div>
-        <div class="stat-tile">
-          <span class="stat-num">127</span>
+        <div class="stat-tile reveal">
+          <span class="stat-num count-up" data-count="127">0</span>
           <span class="stat-label">confirmed <em>(110 previously unreported)</em></span>
         </div>
-        <div class="stat-tile">
-          <span class="stat-num del">57</span>
+        <div class="stat-tile reveal">
+          <span class="stat-num del count-up" data-count="57">0</span>
           <span class="stat-label">weak fixes uncovered in npm packages</span>
         </div>
-        <div class="stat-tile">
+        <div class="stat-tile reveal">
           <span class="stat-num signal">6 + 1</span>
           <span class="stat-label">CVEs published &amp; GHSA advisory</span>
         </div>
       </div>
-      <a class="repo-card" href="https://github.com/kevgeoleo/CrossRuntimeTests" target="_blank" rel="noopener">
+      <a class="repo-card reveal" href="https://github.com/kevgeoleo/CrossRuntimeTests" target="_blank" rel="noopener">
         <div class="repo-card-head">
           <span class="repo-card-icon" aria-hidden="true">⌥</span>
           <span class="repo-card-name">kevgeoleo / CrossRuntimeTests</span>
@@ -288,6 +283,9 @@
         <p class="repo-card-desc">Self-contained, reproducible test cases exposing behavioral differences across Node.js, Deno, and Bun — error timing, fs semantics, networking, crypto/encoding, and stream/buffer handling — each linked to the issue actually filed with runtime maintainers.</p>
         <div class="tags">
           <span class="tag">JavaScript</span><span class="tag">benchmark</span><span class="tag">testsuite</span><span class="tag">cross-runtime</span><span class="tag">compatiblity</span><span class="tag">Node.js</span><span class="tag">Deno</span><span class="tag">Bun</span>
+        </div>
+        <div class="repo-live" id="repo-live" aria-live="polite">
+          <span class="repo-live-dot"></span> checking live repo stats…
         </div>
       </a>
     </div>
