@@ -466,54 +466,6 @@ a:focus-visible, button:focus-visible{
 }
 .stat-label em{ font-style: normal; color: var(--ink-faint); }
 
-/* --- linked repo card (research section) --- */
-.repo-card{
-  display: block;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  padding: 22px 26px;
-  margin-top: 18px;
-  text-decoration: none;
-  color: var(--ink);
-  transition: border-color 0.12s ease, transform 0.12s ease;
-}
-.repo-card:hover{ border-color: var(--ink-faint); transform: translateY(-1px); }
-.repo-card-head{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-  flex-wrap: wrap;
-}
-.repo-card-icon{ color: var(--ink-faint); font-size: 15px; }
-.repo-card-name{
-  font-family: var(--font-mono);
-  font-weight: 600;
-  font-size: 14.5px;
-  color: var(--ink);
-}
-.repo-card-go{
-  font-family: var(--font-mono);
-  font-size: 12.5px;
-  color: var(--ink-muted);
-  margin-left: auto;
-}
-.repo-card-desc{
-  font-size: 14px;
-  color: var(--ink-muted);
-  line-height: 1.55;
-  margin: 0 0 14px;
-  max-width: 680px;
-}
-.repo-card .tags{ margin: 0; }
-.repo-card .tag{
-  font-family: var(--font-mono);
-  font-size: 12px;
-  padding: 4px 10px;
-  background: var(--surface-dim);
-}
-
 /* --- advisories table --- */
 .table-wrap{
   overflow-x: auto;
